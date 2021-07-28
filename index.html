@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Карта предложений</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+	body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;}
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; z-index: 0 }
+
+.marker {
+  background-image: url('bike.png');
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+	.collapsible{
+	  background-color:#ffffff;
+	  position: absolute;
+	  z-index: 1;
+	  top: 10px;
+	  left: 15px;
+	  font-family: 'Montserrat', sans-serif;
+	      font-weight: bold;
+	      font-size: 18px;
+	      white-space:pre;
+	      color: #62A709;
+	      text-align: center;
+	  cursor: pointer;
+	  padding: 10px;
+	  width: 200px;
+	  height: 40 px;
+	  border: none;
+	  text-align: left;
+	  outline: none;
+	  font-size: 15px;
+	}
+/*
+	.active, .collapsible:hover {
+	   background-color: #555;
+	}
+*/
+	.collapsible:after {
+	  content: '\002B';
+	  color: #62A709;
+	  font-weight: bold;
+	  float: right;
+	  margin-left: 0px;
+	}
+	.collapsible.active:after {
+	  content: "\2212";
+	}
+
+	.content {
+	  position: absolute;
+	  z-index: 0;
+	  top: 50px;
+	  left: 10px;
+	  width:200px;
+	 font-size: 13px;
+	  color: #4D535A;
+	  display: block;
+	  margin: 0 5px;
+	  padding: 0;
+	  font-family: 'Montserrat', sans-serif;
+	  max-height: 0;
+	  overflow: hidden;
+	  transition: max-height 0.2s ease-out;
+	  background-color: rgba(95,95,95,0.1);
+	  text-align: center;
+	  font-weight: normal;
+	}
+
+	#menu a {
+	      font-size: 13px;
+		  color: #4D535A;
+	      display: block;
+	      margin: 3px;
+	      padding: 10px;
+	      text-decoration: none;
+	      text-align: center;
+	      font-weight: normal;
+	  }
+
+	#menu  a:hover {
+	      background-color: #62A709;
+	      color: #ffffff;
+	  }
+
+	  #menu a.active {
+	      background-color: #ffffff;
+	      color: #4D535A;
+	    border: none;
+	  }
+
+	  #menu a.active:hover {
+		background-color: #62A709;  
+		color: #ffffff;
+	  }
+
+	  .realization{
+	    color: #62A709;
+		font-weight: bold;
+      }
+	</style>
+
+
+</head>
+<body>
+	<noscript>
+		You need to enable JavaScript to run this app
+	</noscript>
+  <div id="map"></div>
+  <button class="collapsible">Категории</button>
+  <div class="content">
+    <p><nav id="menu"></nav>
+    </p>
+  </div>
+	<script src="index.js" async></script>
+
+
+</body>
+</html>
