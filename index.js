@@ -3,7 +3,7 @@ mapboxgl.accessToken =
 
 let map = new mapboxgl.Map({
   container: "map", // container id
-  style: "https://basemap.ru/mcm/api/rpc/get_style?style_number=1",
+  style: "https://api.moscowcitymap.ru/styles?&id=eq.1",//"https://basemap.ru/mcm/api/rpc/get_style?style_number=1",
   center: [37.618, 55.751], // starting position [lng, lat]
   zoom: 10, // starting zoom
   maxZoom: 16,
