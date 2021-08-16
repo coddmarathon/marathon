@@ -3,12 +3,27 @@ mapboxgl.accessToken =
 
 let map = new mapboxgl.Map({
   container: "map", // container id
-  style: "https://api.moscowcitymap.ru/styles?&id=eq.1",//"https://basemap.ru/mcm/api/rpc/get_style?style_number=1",
+  //style: "https://api.moscowcitymap.ru/styles?&id=eq.1",//"https://basemap.ru/mcm/api/rpc/get_style?style_number=1",
   center: [37.618, 55.751], // starting position [lng, lat]
   zoom: 10, // starting zoom
   maxZoom: 16,
   minZoom: 9
 });
+
+fetch(`https://api.moscowcitymap.ru/styles?&id=eq.1`, {
+    headers: {
+      'Accept': 'application/vnd.pgrst.object+json'
+    }
+  })
+    .then(status)
+    .then(json)
+    .then(function (data) {
+      console.log('Fetched style', data);
+      map.setStyle(data.style_definition);
+    })
+    .catch(function (error) {
+      console.log('Style fetch failed', error);
+    });
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
