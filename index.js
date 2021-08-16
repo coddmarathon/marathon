@@ -9,6 +9,17 @@ let map = new mapboxgl.Map({
   maxZoom: 16,
   minZoom: 9
 });
+  function status(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return Promise.resolve(response);
+    } else {
+      return Promise.reject(new Error(response.statusText));
+    }
+  }
+
+  function json(response) {
+    return response.json();
+  }
 
 fetch(`https://api.moscowcitymap.ru/styles?&id=eq.1`, {
     headers: {
